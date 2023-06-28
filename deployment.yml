@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mydeployment
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  replicas: 1
+  template:
+    metadata:
+      labels: 
+        app: myapp
+    spec:
+      containers:
+      - name: c0
+        image: parashu1151/aadiapp
+        ports:
+          containerPort: 8181
+          
