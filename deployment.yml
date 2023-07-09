@@ -1,20 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata: 
-  name: mydeployment
+  name: mytestpod
 spec:
-  selector:
-    matchLabels:
-      app: myapp
-  replicas: 1
-  template:
-    metadata:
-      labels: 
-        app: myapp
-    spec:
-      containers:
-      - name: c0
-        image: parashu1151/aadiapp
-        ports:
-          containerPort: 8181
-          
+  containers:
+     - name: c0
+       image: centos
+       command: ["/bin/bash","-c","while do;echo aadi;sleep 4;done"]
+       ports:
+         - containerPort: 80
+  
